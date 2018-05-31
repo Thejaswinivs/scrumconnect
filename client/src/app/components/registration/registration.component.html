@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Register</h2>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <label for="username">Name</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="user.name" #username="ngModel" required />
+        <div *ngIf="f.submitted && !username.valid" class="help-block">Name is required</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !sex.valid }">
+        <label for="sex">Sex</label><br/>
+        <label class="radio-inline">
+          <input type="radio"  name="sex" [(ngModel)]="user.sex" #sex="ngModel" value="male" required>Male
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="sex" [(ngModel)]="user.sex" #sex="ngModel" value="female" required>Female
+        </label>
+
+        <div *ngIf="f.submitted && !sex.valid" class="help-block">Sex is required</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !age.valid }">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" name="age" [(ngModel)]="user.age" #age="ngModel" required />
+        <div *ngIf="f.submitted && !age.valid" class="help-block">Age is required</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !country.valid }">
+          <label for="country">Country</label>
+          <select class="form-control" name='country' [(ngModel)]='user.country' #country="ngModel" required>
+              <option *ngFor="let obj of countries" [ngValue]="obj">{{obj}}</option>
+          </select>
+
+          <div *ngIf="f.submitted && !country.valid" class="help-block">Country is required</div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary">Apply</button>
+      </div>
+    </form>
+  </div>
+</div>
