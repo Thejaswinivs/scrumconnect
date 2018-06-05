@@ -70,5 +70,13 @@
  2. Create a service to make an api call to mongodb
  3. handle the responses.
  
+ # Test cases
+ 
+ 1. Created a directory called test and created a file as test.js
+ 2. Seperated the user model into different js file because of reuse
+ 3. tested the mandatory fields.
+ 4. Tested the countries list using the superagent npm package for making Http Ajax calls.
+ 
+ 
  
 
