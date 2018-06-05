@@ -35,12 +35,3 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.listen(port, function () {
     console.log("Connected to the port::: " + port);
 })
-
-app.use("/", function (req, res) {
-    res.send("Hello World");
-});
-
-app.post('/quotes', function (req, res) {
-    console.log("Successfully Completed!!!!");
-    res.sendFile(__dirname + '/success.html');
-});
